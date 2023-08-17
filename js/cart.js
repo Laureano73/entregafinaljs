@@ -5,10 +5,12 @@ const toggleCartButtons = () => {
     cartEmpty.style.display = "none";
     finishPurchaseButton.style.display = "flex";
     totalContainer.style.display = "flex";
+    removeItemsButton.style.display = "flex";
   } else {
     cartEmpty.style.display = "flex";
     finishPurchaseButton.style.display = "none";
     totalContainer.style.display = "none";
+    removeItemsButton.style.display = "none";
   }
 };
 
@@ -27,6 +29,12 @@ const addToCart = (product, quantity) => {
 const removeFromCart = (productId) => {
   const product = findProductById(productId);
   productCart = productCart.filter((item) => item.product.id !== product.id);
+  saveCart();
+  renderCart();
+};
+
+const clearCart = () => {
+  productCart = [];
   saveCart();
   renderCart();
 };
@@ -52,15 +60,15 @@ const renderCart = () => {
             <h2>${title}</h2>
           </div>
           <div>
-            <h2>Quantity: ${quantity}</h2>
+            <h2>Cantidad: ${quantity}</h2>
           </div>
           <div>
-            <h2>Price: $${price}</h2>
+            <h2>Precio: $${price}</h2>
           </div>
           <div>
             <h2>Subtotal: $${subtotal}</h2>
           </div>
-          <div><button onclick="showRemoveConfirmation('${id}')" class="btn btn-danger">Remove</button></div>
+          <div><button onclick="showRemoveConfirmation('${id}')" class="btn clear-button">Eliminar</button></div>
         </div>`;
     cartItems.appendChild(cartItem);
   });
@@ -81,8 +89,6 @@ const loadCart = () => {
 };
 
 const finishPurchase = () => {
-  productCart = [];
-  saveCart();
-  renderCart();
+  clearCart();
   showPurchaseSuccess();
 };

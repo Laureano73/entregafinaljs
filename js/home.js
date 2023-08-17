@@ -1,10 +1,10 @@
 const renderProducts = () => {
   availableProducts.forEach(({ id, img, title, price }) => {
     const card = document.createElement("div");
-    card.className = "col-lg-4 col-md-6 col-sm-12";
+    card.className = "col-lg-4 col-md-6 col-sm12";
 
     card.innerHTML = `<div class="card">
-        <img src="assets/products/${img}" class="card-img-top" alt="shirt" />
+        <img src="assets/products/${img}" class="card-img-top" alt="shirts" />
         <div class="card-body">
           <h5 class="card-title">${title}</h5>
           <h5 class="card-title">$${price}</h5>
@@ -12,7 +12,7 @@ const renderProducts = () => {
             <label class="input-group-text">
               Cantidad
             </label>
-            <input id="${id}-quantity" type="number" min="0" class="form-control" placeholder="0" />
+            <input id="${id}-quantity" type="number" min="1" class="form-control" value="1" />
           </div>
           <button onclick="buyProduct('${id}')" class="btn btn-warning">
             Comprar
@@ -23,7 +23,6 @@ const renderProducts = () => {
 
     // Agrega estilos al botón "Comprar"
     const buyButton = card.querySelector('.btn');
-    buyButton.style.border = '1px solid red';
   });
 };
 
@@ -57,5 +56,5 @@ const buyProduct = (productId) => {
   saveCart();
   renderCart();
 
-  quantityInput.value = "";
+  quantityInput.value = "1";
 };

@@ -8,7 +8,7 @@
 
 body {
   background-image: url(../assets/products/fondo.jpg);
-  background-size: cover; 
+  background-size: cover;
 }
 
 /* HEADER */
@@ -130,7 +130,15 @@ header .navbar {
   font-size: 32px;
   margin-top: 10px;
   padding: 5px;
-  margin-left: 525px;
   font-style: italic;
   text-shadow: 0 0 20px rgb(41, 216, 255), 0 0 20px rgb(41, 216, 255), 0 0 30px rgb(41, 216, 255);
+  text-align: center;
 }
+
+@media (min-width: 768px) {
+  .nombrelogo {
+    margin-top: 20px;
+  }
+}
+
+

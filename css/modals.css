@@ -18,3 +18,11 @@
   margin: 10px !important;
   color: rgb(0, 0, 0) !important;
 }
+
+
+.alerta {
+  color: black;
+  border: 1px solid black;
+  font-weight: bold;
+}
+
