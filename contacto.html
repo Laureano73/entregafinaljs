@@ -38,37 +38,29 @@
 
     <div class="center-container">
         <section>
-            <form class="form">
-                <p class="message">Registrarse</p>
-                <div class="flex">
-
-                    <label>
-                        <input required="" placeholder="" type="text" class="input" id="from_name" name="name" required>
-                        <span>Nombre</span>
-                    </label>
-
-                    <label>
-                        <input required="" placeholder="" type="text" class="input" id="message" name="last" required>
-                        <span>Apellido</span>
-                    </label>
+            <form id="form">
+                <div class="field">
+                    <label for="to_name">Nombre:</label>
+                    <input required="" placeholder="" type="text" name="to_name" id="to_name">
+                </div>
+                <div class="field">
+                    <label for="from_name">Apellido:</label>
+                    <input required="" placeholder="" type="text" name="from_name" id="from_name">
+                </div>
+                <div class="field">
+                    <label for="reply_to">Email:</label>
+                    <input required="" placeholder="" type="email" name="reply_to" id="reply_to">
+                </div>
+                <div class="field">
+                    <label for="name">Contraseña:</label>
+                    <input required="" placeholder="" type="password" name="name" id="name">
+                </div>
+                <div class="field">
+                    <label for="message">Mensaje:</label>
+                    <input required="" placeholder="" type="text" name="message" id="message">
                 </div>
 
-                <label>
-                    <input required="" placeholder="" type="email" class="input" id="email_id" name="email" required>
-                    <span>Email</span>
-                </label>
-
-                <label>
-                    <input required="" placeholder="" type="password" class="input" id="password" name="password"
-                        required>
-                    <span>Contraseña</span>
-                </label>
-                <label>
-                    <input required="" placeholder="" type="password" class="input" id="password" name="password">
-                    <span>Confirmar contraseña</span>
-                </label>
-                <button class="ingresar">Ingresar</button>
-                <p class="signin">Ya tienes una cuenta? <a href="#">Iniciar Sesión</a> </p>
+                <input type="submit" id="button" value="Send Email">
             </form>
 
             <script type="text/javascript"
@@ -77,32 +69,6 @@
             <script type="text/javascript">
                 emailjs.init('KDlWVIRIibM85b2bd')
             </script>
-
-            <script src="./js/login.js"></script>
-
-            <!-- Script de email.js -->
-            <script>
-                const btn = document.getElementById('enviarBtn');
-
-                document.getElementById('form')
-                    .addEventListener('submit', function (event) {
-                        event.preventDefault();
-
-                        btn.value = 'Enviando...';
-
-                        const serviceID = 'default_service';
-                        const templateID = 'template_yc2cjgc';
-
-                        emailjs.sendForm(serviceID, templateID, this)
-                            .then(() => {
-                                btn.value = 'Enviar mensaje';
-                            }, (err) => {
-                                btn.value = 'Enviar mensaje';
-                                alert(JSON.stringify(err));
-                            });
-                    });
-            </script>
-
 
         </section>
     </div>
@@ -156,6 +122,8 @@
             </svg>
         </a>
     </div>
+
+    <script src="./js/login.js"></script>
 
 </body>
 
