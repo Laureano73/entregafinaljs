@@ -13,6 +13,15 @@
     <link rel="stylesheet" href="css/cart.css" />
     <link rel="stylesheet" href="css/footer.css">
     <link rel="stylesheet" href="css/contacto.css">
+    <!-- Link de email.js -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+
+    <!-- alert -->
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- otros -->
+
+
     <link href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@4/dark.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
@@ -49,7 +58,7 @@
                 </div>
                 <div class="field">
                     <label for="reply_to">Email:</label>
-                    <input required="" placeholder="" type="email" name="reply_to" id="reply_to">
+                    <input type="email" id="correo" name="correo" placeholder="" required>
                 </div>
                 <div class="field">
                     <label for="name">Contraseña:</label>
@@ -59,18 +68,18 @@
                     <label for="message">Mensaje:</label>
                     <input required="" placeholder="" type="text" name="message" id="message">
                 </div>
-
                 <input type="submit" id="button" value="Send Email">
             </form>
 
-            <script type="text/javascript"
-                src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-            <script type="text/javascript">
-                emailjs.init('KDlWVIRIibM85b2bd')
-            </script>
-
         </section>
+
+        <!-- Script de email.js -->
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+        <!--  emailjs -->
+        <script type="text/javascript">
+            emailjs.init('KDlWVIRIibM85b2bd')
+        </script>
     </div>
 
     <div class="social-buttons">
@@ -123,8 +132,34 @@
         </a>
     </div>
 
+    <!-- link js -->
     <script src="./js/login.js"></script>
 
 </body>
+
+<!-- script -->
+
+<script>
+    const btn = document.getElementById('button');
+
+    document.getElementById('form')
+        .addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            btn.value = 'Sending...';
+
+            const serviceID = 'default_service';
+            const templateID = 'template_ty0ex9r';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    btn.value = 'Send Email';
+                }, (err) => {
+                    btn.value = 'Send Email';
+                    alert(JSON.stringify(err));
+                });
+        });
+</script>
+
 
 </html>

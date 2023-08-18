@@ -1,28 +1,30 @@
-const btn = document.getElementById('button');
+// Obtener el formulario y botón de envío
+const form = document.querySelector('form');
+const enviarBtn = document.getElementById('button');
 
-document.getElementById('form')
-    .addEventListener('submit', function (event) {
-        event.preventDefault();
+form.addEventListener('submit', function (event) {
+    event.preventDefault();
 
-        btn.value = 'Enviando...';
+    enviarBtn.value = 'Enviando...';
 
-        const serviceID = 'default_service';
-        const templateID = 'template_ty0ex9r';
+    const serviceID = 'service_1kxle9n';
+    const templateID = 'template_ty0ex9r';
 
-        emailjs.sendForm(serviceID, templateID, this)
-            .then(() => {
-                btn.value = 'Enviar ';
-                alert('Sent!');
-            }, (err) => {
-                btn.value = 'Send Email';
-                alert(JSON.stringify(err));
+    emailjs.sendForm(serviceID, templateID, this)
+        .then(() => {
+            enviarBtn.value = 'Enviar';
+            Swal.fire({
+                icon: 'success',
+                title: 'Mensaje Enviado 😀',
+                text: 'En breve un asesor se comunicará con vos.',
+                confirmButtonText: 'Cerrar'
             });
-    });
-
-Swal.fire({
-    icon: 'success',
-    title: 'Mensaje Enviado 😀',
-    text: 'En breve un asesor se comunicará con vos.',
-    confirmButtonText: 'Cerrar'
-})
+        })
+        .catch(err => {
+            enviarBtn.value = 'Enviar';
+            alert(JSON.stringify(err));
+        });
+        form.reset()
+});
+// Restablece el formulario
 
