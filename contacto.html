@@ -68,7 +68,7 @@
                     <label for="message">Mensaje:</label>
                     <input required="" placeholder="" type="text" name="message" id="message">
                 </div>
-                <input type="submit" id="button" value="Send Email">
+                <input type="submit" id="button" value="Enviar Email">
             </form>
 
         </section>
@@ -146,16 +146,16 @@
         .addEventListener('submit', function (event) {
             event.preventDefault();
 
-            btn.value = 'Sending...';
+            btn.value = 'Enviando...';
 
             const serviceID = 'default_service';
             const templateID = 'template_ty0ex9r';
 
             emailjs.sendForm(serviceID, templateID, this)
                 .then(() => {
-                    btn.value = 'Send Email';
+                    btn.value = 'Enviar Email';
                 }, (err) => {
-                    btn.value = 'Send Email';
+                    btn.value = 'Enviar Email';
                     alert(JSON.stringify(err));
                 });
         });

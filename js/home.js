@@ -58,3 +58,4 @@ const buyProduct = (productId) => {
 
   quantityInput.value = "1";
 };
+

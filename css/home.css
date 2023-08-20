@@ -11,6 +11,25 @@ body {
   background-size: cover;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+/* Barra de scroll */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f7e7e2;
+}
+
+::-webkit-scrollbar-thumb {
+  background: pink;
+  border-radius: 100vw;
+}
+
 /* HEADER */
 header {
   display: flex;
@@ -140,5 +159,7 @@ header .navbar {
     margin-top: 20px;
   }
 }
+
+
 
 

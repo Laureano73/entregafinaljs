@@ -52,7 +52,7 @@ const renderCart = () => {
 
     const { id, img, title, price } = product;
 
-    cartItem.innerHTML = `<div class="image-cart">
+    cartItem.innerHTML = `<div class="image-cart" >
           <img src="assets/products/${img}" alt="" />
         </div>
         <div class="products-container">
