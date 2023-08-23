@@ -105,8 +105,6 @@ header .navbar {
   border-bottom: 2px solid rgb(41, 216, 255);
 }
 
-
-
 .card {
   display: flex;
   flex-direction: column;
